@@ -1,0 +1,35 @@
+# 二手车 MCP 服务器配置
+
+## 服务配置
+host: "0.0.0.0"
+port: 8000
+
+## 数据库配置
+database:
+  path: "./data/car_inventory.db"
+  backup_path: "./data/backups/"
+
+## MCP 配置
+mcp:
+  server_name: "used-car-mcp"
+  version: "1.0.0"
+  transport: "stdio"  # stdio 或 sse
+
+## API 配置
+api:
+  cors_origins:
+    - "*"
+  rate_limit:
+    requests_per_minute: 60
+  timeout_seconds: 30
+
+## 日志配置
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/mcp_server.log"
+
+## 安全配置
+security:
+  api_key_length: 32
+  require_api_key: true
